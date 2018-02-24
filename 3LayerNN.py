@@ -16,9 +16,9 @@ class NeuralNetwork:
         for epoch in range(0, num_epochs):
             #Forward Propagation
             a1 = X #input
-            z2 = np.dot(a1, self.theta1) #input to hidden layer
+            z2 = np.dot(a1, self.theta1) + self.bias1 #input to hidden layer
             a2 = sigmoid(z2) #output from hidden layer
-            z3 = np.dot(a2,self.theta2) #input to output layer
+            z3 = np.dot(a2,self.theta2) +self.bias2 #input to output layer
             a3 = sigmoid(z3) #output from output layer. final output
 
             exp_z = np.exp(a3)
@@ -46,9 +46,9 @@ class NeuralNetwork:
             
     def predict(self, X):
         a1 = X #input
-        z2 = np.dot(a1, self.theta1) #input to hidden layer
+        z2 = np.dot(a1, self.theta1) + self.bias1 #input to hidden layer
         a2 = sigmoid(z2) #output from hidden layer
-        z3 = np.dot(a2,self.theta2) #input to output layer
+        z3 = np.dot(a2,self.theta2) +self.bias2 #input to output layer
         a3 = sigmoid(z3) #output from output layer. final output
         
         exp_z = np.exp(a3)
